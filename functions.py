@@ -127,15 +127,17 @@ def get_inv_status(path):
                 REQUESTED_INVOICE_STATUSES[invoice] = \
                     f'Scheduled due {GFIS_DATA[invoice][0]}, paid on: {GFIS_DATA[invoice][1]}'
             else:
+                invoice_initial = invoice
                 invoice = invoice + '-DOUBLE'
                 REQUESTED_INVOICE_STATUSES[invoice] = \
-                    f'Scheduled due {GFIS_DATA[invoice][0]}, paid on: {GFIS_DATA[invoice][1]}'
+                    f'Scheduled due {GFIS_DATA[invoice_initial][0]}, paid on: {GFIS_DATA[invoice_initial][1]}'
         elif invoice in COMBINED_DATA.keys():
             if invoice not in REQUESTED_INVOICE_STATUSES.keys(): 
                 REQUESTED_INVOICE_STATUSES[invoice] = STATUS_CODES[str(COMBINED_DATA[invoice])]
             else:
+                invoice_initial = invoice
                 invoice = invoice + '-DOUBLE'
-                REQUESTED_INVOICE_STATUSES[invoice] = STATUS_CODES[str(COMBINED_DATA[invoice])]
+                REQUESTED_INVOICE_STATUSES[invoice] = STATUS_CODES[str(COMBINED_DATA[invoice_initial])]
         elif invoice not in COMBINED_DATA.keys():
             if invoice not in REQUESTED_INVOICE_STATUSES.keys(): 
                 REQUESTED_INVOICE_STATUSES[invoice] = 'Missing'

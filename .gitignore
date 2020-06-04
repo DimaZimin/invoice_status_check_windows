@@ -2,3 +2,6 @@ basware
 flow
 gfis
 functions - Copy.py
+__pycache__
+check_invoices.xlsx
+setup.py
