@@ -29,12 +29,10 @@ I am a beginner Python user and this is my first working project that does somet
 
 Every day during the work process in the company where I work we have to respond to mail requests and provide updated statuses of the invoices that are registered in our database. The list might include a huge number of the invoices we need to check (up to 100-150 pc.) Before this tool was created, we could retrieve only one invoice at a time in two databases that we use. The way we operated while providing statuses of invoices required only manual copy-paste steps that took a lot of time and was super boring and inefficient. So that how I come up with the idea to create this tool.
 
-As I mentioned before, we use two databases: one is for the invoices that are not processed, and another is for the processed ones (Oracle database). Although both databases use SQL, unfortunately due to corporate  burocracy obtaining direct access to the databases could last for years. The databases use GUI that allows us to make queries and download required data as CSV or Excel files. After making a query, we get 3 different data files (2 CSV and XLSX) that contain data of hundreds or thousands of invoices.
+As I mentioned before, we use two databases: one is for the invoices that are not processed, and another is for the processed ones (Oracle database). Although both databases use SQL, unfortunately due to corporate  bureaucracy obtaining direct access to the databases could last for years. The databases use GUI that allows us to make queries and download required data as CSV or Excel files. After making a query, we get 3 different data files (2 CSV and XLSX) that contain data of hundreds or thousands of invoices.
 <p>
 
-The first CSV file contains data about processed pre-processed invoices. 
-The second CSV contains information about approvers of invoices. The last one hold payment schedule date and actual payment date.
-
+The first CSV file contains data of processed and pre-processed invoices. The second CSV contains information about approvers of invoices. The last one holds the payment schedule date and the actual payment date.
 There could be more than 10 possible statuses for an invoice:
 
 STATUS_CODES = 
@@ -56,10 +54,9 @@ or <br>
 
 Scheduled due [date], Not paid <br>
 
-<h4> How it works? </h4>
+<h4> How does it work? </h4>
 
-First, we need to create "check_invoices.xlsx" file where we place the list of the invoices  whose updated statuses are required. The tool loads the list and seeks for each of the position (invoice number) in downloaded data query files. If the invoice number is recorded in any of the given data files, its actual status will be copied and transferred to the "check_invoices.xlsx" file. If the invoice was not found, the status will be updated as "Missing".
-
+First, we need to create "check_invoices.xlsx" file where we place the list of the invoices whose updated statuses are required. The tool loads the list and seeks for each of the position (invoice number) in downloaded data query files. If the invoice number is recorded in any of the given data files, its actual status will be copied and transferred to the "check_invoices.xlsx" file. If the invoice was not found, the status will be updated as "Missing".
 
 
 
