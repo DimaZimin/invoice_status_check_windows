@@ -90,7 +90,7 @@ def data_from_combined(path):
         print(f'File {path} not found')
     else:
         for row in combined_sheet.iter_rows(min_row=MIN_ROW, values_only=True):
-            invoice_num = row[BASWARE_INVOICE_COL]
+            invoice_num = str(row[BASWARE_INVOICE_COL])
             status_code = row[BASWARE_STATUS_COL]
             COMBINED_DATA[invoice_num] = status_code
 
@@ -108,7 +108,7 @@ def data_from_flow(path):
         print(f'File {path} not found')
     else:
         for row in flow_sheet.iter_rows(min_row=MIN_ROW, values_only=True):
-            invoice_num = row[FLOW_INVOICE_COL]
+            invoice_num = str(row[FLOW_INVOICE_COL])
             approver = row[FLOW_APPROVER_COL]
             date_sent = row[FLOW_DATE_SENT_COL]
             FLOW_DATA[invoice_num] = approver, date_sent
@@ -118,7 +118,7 @@ def get_inv_status(path):
     """
     Updates dictionary where invoice number is a key and value is a string that represents actual status
     of invoice
-    :param path: path to excel file that contains list of invoices to be checked
+    :param path: path to excel file that contains list of invoices that need to be checked
     :return: updates REQUESTED_INVOICE_STATUSES dictionary with data query
     """
     for invoice in DataFile.load_invoices(file_path=path):
