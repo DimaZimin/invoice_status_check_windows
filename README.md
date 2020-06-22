@@ -16,7 +16,7 @@ Technology and libraries used:
 <li> os </li>
 </ul>
 
-<h3> Who is this for? </h3>
+<h3> The purpose of the project. </h3>
 
 The main purpose of the script is to automate manual, inefficient manipulation in one of the working processes in a company where I work. Although it serves only mine and my colleague's needs, anyone who works with data, CSV, and Excel spreadsheets may find some parts of the code relevant for their purposes.
 
